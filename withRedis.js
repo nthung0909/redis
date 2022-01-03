@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
         }).then(async response => {
             const {userId} = response.data;
             //send data to redis
-            await client.set('userId', 6000, userId);
+            await client.set('userId', userId);
             console.timeEnd('LOG_TIME');
             return res.json(JSON.stringify(response.data));
         }).catch(async e => {
