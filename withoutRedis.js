@@ -1,9 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 const PORT = 3002;
-const withRedis = express();
+const app = express();
 
-withRedis.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         console.time('LOG_TIME');
         axios({
@@ -22,6 +22,6 @@ withRedis.get('/', async (req, res) => {
     }
 });
 
-withRedis.listen(PORT, (req, res) => {
+app.listen(PORT, (req, res) => {
     console.log('App is runing at port ', PORT);
 })
